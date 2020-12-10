@@ -16,7 +16,6 @@ marked.setOptions({
 const resize = <FontAwesomeIcon icon={faExpandAlt}/>;
 const markdown = <FontAwesomeIcon icon={faMarkdown}/>;
 
-
 class Editor extends react.Component {
   constructor(props) {
     super(props)
