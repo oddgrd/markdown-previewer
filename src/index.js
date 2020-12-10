@@ -6,18 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './index.scss';
 import marked from "marked";
-import hljs from "highlight.js";
+
 marked.setOptions({
-  renderer: new marked.Renderer(),
-  highlight: function (code, lang, _callback) {
-    if (hljs.getLanguage(lang)) {
-      return hljs.highlight(lang, code).value
-    } else {
-      return hljs.highlightAuto(code).value
-    }
-  },
   breaks: true
 });
 
@@ -88,9 +80,6 @@ class Editor extends react.Component {
   }
 };
 
-function Editorr(props) {
-  return;
-};
 function Preview(props) {
     return (
       <div>
