@@ -66,7 +66,7 @@ class Editor extends react.Component {
           <button 
             className="enlarge btn shadow-none" 
             onClick={this.handleClickEditor}
-            >{resize}
+          >{resize}
           </button>
         </div>
         <textarea 
@@ -74,37 +74,45 @@ class Editor extends react.Component {
           value={this.state.editorInput} 
           onChange={this.handleChange} 
           type="text"
-          style={this.state.maximizedEditor ? styles.editor.max : styles.editor.min}>
+          style={this.state.maximizedEditor ? styles.editor.max : styles.editor.min}
+        >
         </textarea>
         
-        <div 
-          className="title" 
-          id="preview-title"
-          style={this.state.maximizedPreview ? styles.previewTitle.max : styles.previewTitle.min}
-          >{markdown} Preview
-          <button 
-            className="enlarge btn shadow-none"
-            onClick={this.handleClickPreview}
-            >{resize}
-          </button>
-        </div>
         <Preview 
-        editorText={marked(this.state.editorInput)}
-        maximized={this.state.maximizedPreview}
+          editorText={marked(this.state.editorInput)}
+          maximized={this.state.maximizedPreview}
+          handleClick={this.handleClickPreview}
         />
       </div>
     )
   }
 };
 
+function Editorr(props) {
+  return;
+};
 function Preview(props) {
     return (
-    <div 
-      id="preview" 
-      dangerouslySetInnerHTML={{__html: marked(props.editorText)}}
-      style={props.maximized ? styles.preview.max : styles.preview.min}
-      >
-    </div>
+      <div>
+        <div
+          className="title" 
+          id="preview-title"
+          style={props.maximized ? styles.previewTitle.max : styles.previewTitle.min}
+          >{markdown} Preview
+          
+          <button 
+            className="enlarge btn shadow-none"
+            onClick={props.handleClick}
+            >{resize}
+          </button>
+        </div>
+        <div 
+          id="preview" 
+          dangerouslySetInnerHTML={{__html: marked(props.editorText)}}
+          style={props.maximized ? styles.preview.max : styles.preview.min}
+        >
+        </div>
+      </div>
     )
 };
 
